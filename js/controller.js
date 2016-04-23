@@ -1,11 +1,9 @@
 var app = angular.module('myApp');
 app.controller('myCtrl', ['$scope','$location','myService', function ($scope,$location,myService) {
-	
 	$scope.items = myService.get();
 	$scope.newTasks = '';
 	
 	$scope.add = function(){
-		
 		console.log($scope.newTasks);
 		if(!$scope.newTasks){return;}
 		myService.add($scope.newTasks);

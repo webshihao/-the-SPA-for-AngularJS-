@@ -1,8 +1,8 @@
 <section class="todoapp" ng-controller="myCtrl">
 	<header class="header">
-		<h1>todos</h1>
+		<h1>任务清单</h1>
 		<form ng-submit="add()">
-			<input class="new-todo" ng-model="newTasks" placeholder="What needs to be done?" autofocus>
+			<input class="new-todo" ng-model="newTasks" placeholder="你想要做什么?" autofocus>
 		</form>
 	</header>
 	<!-- This section should be hidden by default and shown when there are todos -->
@@ -27,28 +27,23 @@
 	<!-- This footer should hidden by default and shown when there are todos -->
 	<footer class="footer">
 		<!-- This should be `0 items left` by default -->
-		<span class="todo-count"><strong>{{itemleft}}</strong> item left</span>
+		<span class="todo-count"><strong>{{itemleft}}</strong> 个剩余任务</span>
 		<!-- Remove this if you don't implement routing -->
 		<ul class="filters">
 			<li>
-				<a ng-class="{'selected':isComplete.completed==undefined}" ng-click="all()" href="#/">All</a>
+				<a ng-class="{'selected':isComplete.completed==undefined}" ng-click="all()" href="#/">所有</a>
 			</li>
 			<li>
-				<a href="#/active" ng-class="{'selected':isComplete.completed==false}" ng-click="active()">Active</a>
+				<a href="#/active" ng-class="{'selected':isComplete.completed==false}" ng-click="active()">未完成</a>
 			</li>
 			<li>
-				<a href="#/completed" ng-class="{'selected':isComplete.completed==true}" ng-click="completed()">Completed</a>
+				<a href="#/completed" ng-class="{'selected':isComplete.completed==true}" ng-click="completed()">已完成</a>
 			</li>
 		</ul>
 		<!-- Hidden if no completed items are left ↓ -->
-		<button class="clear-completed" ng-show="isShow()" ng-click="clearCompleted()">Clear completed</button>
+		<button class="clear-completed" ng-show="isShow()" ng-click="clearCompleted()">清除所有已完成</button>
 	</footer>
 </section>
 <footer class="info">
-	<p>Double-click to edit a todo</p>
-	<!-- Remove the below line ↓ -->
-	<p>Template by <a href="http://sindresorhus.com">Sindre Sorhus</a></p>
-	<!-- Change this out with your name and url ↓ -->
-	<p>Created by <a href="http://todomvc.com">you</a></p>
-	<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+	<p>双击当前任务显示为可编辑状态</p>
 </footer>
